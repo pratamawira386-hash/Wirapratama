@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Map Kreatif - Perkembangan & Emosi</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --bg-main: #F4EAE1;
+            --color-primary: #4A2E1B;
+            --color-accent: #8C6246;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--color-primary);
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+        /* Animasi garis putus-putus mengalir */
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -20;
+            }
+        }
+        .flowing-line {
+            stroke: var(--color-accent);
+            stroke-dasharray: 6, 4;
+            animation: dash 1s linear infinite;
+        }
+        /* Efek kartu melayang dan membesar halus */
+        .mindmap-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .mindmap-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(74, 46, 27, 0.1), 0 10px 10px -5px rgba(74, 46, 27, 0.04);
+            border-color: var(--color-accent);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 md:p-12 relative select-none">
+
+    <!-- CANVAS SVG UNTUK GARIS HUBUNG (Hanya aktif di Desktop) -->
+    <svg class="hidden md:block absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Jalur ke Kiri Atas (Objectives) -->
+        <path d="M 50% 50% Q 35% 45%, 28% 30%" fill="none" stroke-width="2" class="flowing-line" />
+        <!-- Jalur ke Kanan Atas (Strategy) -->
+        <path d="M 50% 50% Q 65% 45%, 72% 30%" fill="none" stroke-width="2" class="flowing-line" />
+        <!-- Jalur ke Kiri Bawah (Revision) -->
+        <path d="M 50% 50% Q 35% 55%, 28% 70%" fill="none" stroke-width="2" class="flowing-line" />
+        <!-- Jalur ke Kanan Bawah (Action) -->
+        <path d="M 50% 50% Q 65% 55%, 72% 70%" fill="none" stroke-width="2" class="flowing-line" />
+    </svg>
+
+    <div class="relative max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-32 md:gap-y-16 my-auto z-10">
+        
+        <!-- PUSAT UTAMA (Melayang anggun di tengah desktop) -->
+        <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FAF6F0] border-4 border-[#4A2E1B] rounded-2xl p-6 shadow-xl z-20 text-center min-w-[240px] transform hover:scale-105 transition-all duration-300">
+            <div class="absolute -inset-1 bg-gradient-to-r from-[#8C6246] to-[#4A2E1B] rounded-2xl blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            <h2 class="relative text-xl font-black tracking-widest text-[#4A2E1B]">PERKEMBANGAN<br><span class="text-xs font-medium text-[#8C6246] block my-1">&</span>EMOSI</h2>
+        </div>
+
+        <!-- PUSAT UTAMA UNTUK MOBILE -->
+        <div class="md:hidden block bg-[#FAF6F0] border-2 border-[#4A2E1B] rounded-2xl p-5 shadow-lg text-center w-full mb-2">
+            <h2 class="text-xl font-black tracking-wider text-[#4A2E1B]">PERKEMBANGAN & EMOSI</h2>
+        </div>
+
+        <!-- 1. OBJECTIVES -->
+        <div class="mindmap-card bg-[#FAF6F0]/90 backdrop-blur-sm border-2 border-dashed border-[#4A2E1B]/40 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="flex items-center justify-center bg-[#4A2E1B] text-white rounded-lg w-8 h-8 font-bold text-sm">1</span>
+                <h3 class="text-lg font-black text-[#4A2E1B] tracking-wide">OBJECTIVES (Milestone)</h3>
+            </div>
+            <ul class="space-y-2.5 text-sm md:text-base text-[#5C4636]">
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[75px] inline-block">0-2 bln:</span> <span>Menangis, tersenyum, menatap wajah</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[75px] inline-block">2-6 bln:</span> <span>Membalas senyum, mengenali wajah</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[75px] inline-block">6-12 bln:</span> <span>Takut orang asing, ada benda favorit</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[75px] inline-block">2-4 th:</span> <span>Sering tantrum, emosi bervariasi</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[75px] inline-block">5-6 th:</span> <span>Belajar aturan, mengenal arti adil</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[75px] inline-block">7-12 th:</span> <span>Kontrol emosi, empati, emosi matang</span></li>
+            </ul>
+        </div>
+
+        <!-- 2. STRATEGY -->
+        <div class="mindmap-card bg-[#FAF6F0]/90 backdrop-blur-sm border-2 border-dashed border-[#4A2E1B]/40 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="flex items-center justify-center bg-[#4A2E1B] text-white rounded-lg w-8 h-8 font-bold text-sm">2</span>
+                <h3 class="text-lg font-black text-[#4A2E1B] tracking-wide">STRATEGY (Stimulasi)</h3>
+            </div>
+            <ul class="space-y-2 text-sm md:text-base text-[#5C4636] list-none">
+                <li class="hover:translate-x-1 transition-transform duration-200">✨ Memberikan kasih sayang & perhatian tulus</li>
+                <li class="hover:translate-x-1 transition-transform duration-200">✨ Mengajak anak berbicara tentang perasaannya</li>
+                <li class="hover:translate-x-1 transition-transform duration-200">✨ Memberikan contoh cara mengendalikan emosi</li>
+                <li class="hover:translate-x-1 transition-transform duration-200">✨ Mendorong anak bermain bersama teman</li>
+                <li class="hover:translate-x-1 transition-transform duration-200">✨ Membacakan cerita bermuatan nilai emosi</li>
+                <li class="hover:translate-x-1 transition-transform duration-200">✨ Memberikan pujian atas usaha anak</li>
+            </ul>
+        </div>
+
+        <!-- 3. REVISION -->
+        <div class="mindmap-card bg-[#FAF6F0]/90 backdrop-blur-sm border-2 border-dashed border-[#4A2E1B]/40 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="flex items-center justify-center bg-[#4A2E1B] text-white rounded-lg w-8 h-8 font-bold text-sm">3</span>
+                <h3 class="text-lg font-black text-[#4A2E1B] tracking-wide">REVISION (Media Kreatif)</h3>
+            </div>
+            <div class="text-sm md:text-base text-[#5C4636] space-y-3">
+                <p><span class="font-bold text-[#8C6246]">Media:</span> Papan Emosi</p>
+                <div class="bg-[#F4EAE1] p-3 rounded-xl border border-[#4A2E1B]/10">
+                    <span class="font-bold text-xs uppercase tracking-wider block text-[#8C6246] mb-1">Mengenal & mengekspresikan emosi</span>
+                    <p class="font-medium">Senang, Sedih, Marah, Takut, Bangga, Malu.</p>
+                </div>
+                <ul class="space-y-1.5 list-disc list-inside text-sm pt-1">
+                    <li>Anak memilih gambar sesuai perasaannya.</li>
+                    <li>Anak menceritakan penyebab di balik emosi.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4. ACTION -->
+        <div class="mindmap-card bg-[#FAF6F0]/90 backdrop-blur-sm border-2 border-dashed border-[#4A2E1B]/40 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="flex items-center justify-center bg-[#4A2E1B] text-white rounded-lg w-8 h-8 font-bold text-sm">4</span>
+                <h3 class="text-lg font-black text-[#4A2E1B] tracking-wide">ACTION (Stimulasi Tahapan)</h3>
+            </div>
+            <ul class="space-y-2.5 text-sm md:text-base text-[#5C4636]">
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[85px] inline-block">0-12 bln:</span> <span>Pelukan, kontak mata, cilukba</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[85px] inline-block">2-4 th:</span> <span>Bicara perasaan, dampingi tantrum</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[85px] inline-block">5-6 th:</span> <span>Bermain peran, aturan & empati</span></li>
+                <li class="flex items-start"><span class="font-bold text-[#8C6246] min-w-[85px] inline-block">7-12 th:</span> <span>Diskusi, problem solving</span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
